@@ -12,10 +12,17 @@ public class Main {
         VectorCelularesDefectuosos vec3=null;
 
 
-        do {
 
-            opc = Integer.parseInt(JOptionPane.showInputDialog(
-                    "***MENU***\n[1]Altas de celulares nuevos\n[2]Ventas de celulares\n[3]Registro de celulares defectuosos\n[4]Reportes\n[5]Salir"));
+        do {
+                try{
+                    opc =InpuntNoVacio.entradaVacia(Integer.parseInt(JOptionPane.showInputDialog(
+                    "***MENU***\n[1]Altas de celulares nuevos\n[2]Ventas de celulares\n[3]Registro de celulares defectuosos\n[4]Reportes\n[5]Salir")));
+
+                }catch(Exception e)
+                {
+                    JOptionPane.showMessageDialog(null,"Por favor ingrese un valor");
+                }
+
             switch (opc) {
                 case 1:
                     try{
@@ -38,7 +45,7 @@ public class Main {
                         n = Integer.parseInt(
                             JOptionPane.showInputDialog("Ingrese el numero de ventas de celulares a ingresar"));
                         
-                    }catch(NullPointerException e)
+                    }catch(NumberFormatException e)
                     {
                         JOptionPane.showMessageDialog(null,"Solo valores numericos");
                     }
@@ -59,17 +66,16 @@ public class Main {
                          JOptionPane.showMessageDialog(null,"Solo valores numericos");
                     }
                     
-                    new VectorCelularesDefectuosos(n);
-                    vec3.capturarCelularesDefectuosos();
+                            new VectorCelularesDefectuosos(n);
+                            vec3.capturarCelularesDefectuosos();
 
                     break;
 
                 case 4:
 
                     do {
-
-                        opc1 = Integer
-                                .parseInt(JOptionPane.showInputDialog(
+                        
+                        opc1 = Integer.parseInt(JOptionPane.showInputDialog(
                                         "***REPORTES***\n[1]Celulares nuevos\n[2]Celulares defectuosos\n[3]Celulares vendidos\n[4]Regresar"));
                         switch (opc1) {
                             case 1:
@@ -116,5 +122,12 @@ public class Main {
         } while (opc != 5);
 
     }
+    static void noVacio(int opc)throws Testeo
+    {
+         if(opc!=1||opc!=2||opc!=3||opc!=4) throw new Testeo("Ingrese un valor mostrado de el menu");
+        
+        
+    }
+
 
 }

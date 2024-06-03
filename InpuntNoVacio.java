@@ -1,11 +1,15 @@
 public class InpuntNoVacio extends Exception{
-    public static int entradaVacia (int opc)throws Main
+    
+    public static int entradaVacia (int opc)throws ExcepcioPropia
     {
-        if(opc!=1||opc!=2||opc!=3||opc!=4)
+        if(opc==1||opc==2||opc==3||opc==4||opc==5)
         {
-            //throw new Main("Por favor eliga una opcion");
+           return opc;
         }
-        return opc;
+       
+        throw new ExcepcioPropia("Por favor eliga una opcion");
+        
+        
     }
     
 }
