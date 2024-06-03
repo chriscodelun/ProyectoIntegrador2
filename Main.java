@@ -18,8 +18,15 @@ public class Main {
                     "***MENU***\n[1]Altas de celulares nuevos\n[2]Ventas de celulares\n[3]Registro de celulares defectuosos\n[4]Reportes\n[5]Salir"));
             switch (opc) {
                 case 1:
-                    n = Integer
+                    try{
+                        n = Integer
                             .parseInt(JOptionPane.showInputDialog("Ingrese el numero de celulares nuevos a ingresar"));
+
+                    }catch(NumberFormatException e)
+                    {
+                        JOptionPane.showMessageDialog(null,"Solo valores numericos");
+                    }
+                    
 
                     vec1 = new VectorcelularesNuevos(n);
                     vec1.setN(n);
@@ -27,16 +34,32 @@ public class Main {
 
                     break;
                 case 2:
-                    n = Integer.parseInt(
+                    try{
+                        n = Integer.parseInt(
                             JOptionPane.showInputDialog("Ingrese el numero de ventas de celulares a ingresar"));
-                     new VectorCelularesVendidos(n);
-                    vec2.capturarCelularesVendidos();
+                        
+                    }catch(NullPointerException e)
+                    {
+                        JOptionPane.showMessageDialog(null,"Solo valores numericos");
+                    }
+                    
+                    
+                            new VectorCelularesVendidos(n);
+                            vec2.capturarCelularesVendidos();
                     break;
 
                 case 3:
-                    n = Integer.parseInt(
-                            JOptionPane.showInputDialog("Ingrese el numero de celulares defectuosos a ingresar"));
-                        new VectorCelularesDefectuosos(n);
+                    try
+                    {
+                        n = Integer.parseInt(
+                        JOptionPane.showInputDialog("Ingrese el numero de celulares defectuosos a ingresar"));
+                    }
+                    catch (NumberFormatException e) 
+                    {
+                         JOptionPane.showMessageDialog(null,"Solo valores numericos");
+                    }
+                    
+                    new VectorCelularesDefectuosos(n);
                     vec3.capturarCelularesDefectuosos();
 
                     break;
@@ -81,9 +104,6 @@ public class Main {
                                 {
                                     JOptionPane.showMessageDialog(null,"No se han ingresado celulares vendidos");
                                 }
-                               
-                                
-
                                 break;
                         }
 
