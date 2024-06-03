@@ -8,6 +8,9 @@ public class Main {
         int n = 0;
 
         VectorcelularesNuevos vec1=null;
+        VectorCelularesVendidos vec2 =null;
+        VectorCelularesDefectuosos vec3=null;
+
 
         do {
 
@@ -26,14 +29,14 @@ public class Main {
                 case 2:
                     n = Integer.parseInt(
                             JOptionPane.showInputDialog("Ingrese el numero de ventas de celulares a ingresar"));
-                    VectorCelularesVendidos vec2 = new VectorCelularesVendidos(n);
+                     new VectorCelularesVendidos(n);
                     vec2.capturarCelularesVendidos();
                     break;
 
                 case 3:
                     n = Integer.parseInt(
                             JOptionPane.showInputDialog("Ingrese el numero de celulares defectuosos a ingresar"));
-                    VectorCelularesDefectuosos vec3 = new VectorCelularesDefectuosos(n);
+                        new VectorCelularesDefectuosos(n);
                     vec3.capturarCelularesDefectuosos();
 
                     break;
@@ -47,16 +50,39 @@ public class Main {
                                         "***REPORTES***\n[1]Celulares nuevos\n[2]Celulares defectuosos\n[3]Celulares vendidos\n[4]Regresar"));
                         switch (opc1) {
                             case 1:
-
-                                vec1.mostrarCelularesNuevos();
+                                if(vec1!=null)
+                                {
+                                    vec1.mostrarCelularesNuevos();
+                                }
+                                else
+                                {
+                                    JOptionPane.showMessageDialog(null,"No se han ingresado celulares Nuevos");
+                                }
 
                                 break;
 
                             case 2:
+                                if(vec3!=null)
+                                {
+                                    vec3.mostrarCelularesDefectuosos();
+                                }else
+                                {
+                                    JOptionPane.showMessageDialog(null,"No se han ingresado celulares defectuosos");
+                                }           
 
                                 break;
 
                             case 3:
+                                if(vec2!=null)
+                                {
+                                    vec2.mostrarCelularesVendidos();
+                                }
+                                else
+                                {
+                                    JOptionPane.showMessageDialog(null,"No se han ingresado celulares vendidos");
+                                }
+                               
+                                
 
                                 break;
                         }
